@@ -1,0 +1,15 @@
+# Cole no pyproject.toml do novo projeto.
+# Dependências de desenvolvimento: uv add --dev pytest pytest-cov ruff
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+pythonpath = ["."]
+
+[tool.coverage.run]
+# source = ["."] faz arquivo que nenhum teste importa contar como 0%.
+source = ["."]
+omit = ["test/*", "app.py", "ui.py", ".venv/*"]
+
+[tool.coverage.report]
+fail_under = 60
+show_missing = true

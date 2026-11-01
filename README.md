@@ -30,6 +30,21 @@ O resultado fica em `ecommerce.duckdb`, na raiz.
 
 ## Os dados
 
+**Origem:** o dataset foi obtido no Kaggle, em
+[E-commerce Data](https://www.kaggle.com/datasets/lamskdna/e-commerce-data).
+
+**Licença dos dados:** segundo o Kaggle, *Database: Open Database, Contents: © Original Authors*.
+O banco de dados está sob a [Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/);
+os valores individuais mantêm os direitos dos autores originais. Os CSVs de `raw/` não foram
+alterados, e `raw/README.md` traz a atribuição e o aviso que a licença pede.
+
+Contains information from [E-commerce Data](https://www.kaggle.com/datasets/lamskdna/e-commerce-data),
+which is made available here under the [Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/1-0/).
+
+Se você publicar o banco gerado (`ecommerce.duckdb`, que é um banco derivado) ou o
+`relatorio.html`, a licença exige manter esse aviso, e o banco derivado publicado fica sob a ODbL.
+Este resumo não é aconselhamento jurídico: vale o texto da licença.
+
 Os seis CSVs ficam em `raw/` e **são versionados** (cerca de 1 MB no total). As contagens abaixo são
 as desses arquivos:
 
@@ -42,10 +57,13 @@ as desses arquivos:
 | `order_items.csv` | 15.000 | itens de cada pedido |
 | `returns.csv` | 1.500 | devoluções |
 
-`dataset/Data_Extraction.py` é o script que gera esse dado. Ele não usa semente e a exportação dos
-CSVs está comentada, então **gerar de novo produz números diferentes**: é por isso que os CSVs de
-`raw/` ficam no repositório, como fonte única dos números. Como o dado é sintético e sorteado, não
-há tendência nem correlação: as barras dos gráficos saem quase do mesmo tamanho.
+`dataset/Data_Extraction.py` é o script que gera esse dado e **veio junto do download do Kaggle**,
+sem alterações. A ODbL não cobre programas de computador (seção 2.3), e a licença desse arquivo
+não foi verificada: ele é mantido aqui só como registro de como o dado foi gerado. O script não usa
+semente e a exportação dos CSVs está comentada, então **gerar de novo produz números diferentes**:
+é por isso que os CSVs de `raw/` ficam no repositório, como fonte única dos números. Como o dado é
+sintético e sorteado, não há tendência nem correlação: as barras dos gráficos saem quase do mesmo
+tamanho.
 
 O dado não tem data de pedido, frete, desconto nem moeda declarada. Por isso não há série temporal,
 e os valores são exibidos em dólar (US$) por convenção de exibição, sem conversão.

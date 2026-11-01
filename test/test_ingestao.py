@@ -10,9 +10,9 @@ Spec (specs/06_testes.md, seção 3, ingestao), com o motivo de cada regra prova
 - Reexecução idêntica e sem duplicar; saída com total e milhar com ponto.
 """
 
+import apoio
 import pytest
 
-import apoio
 from pipeline import ingestao
 
 TABELAS = ["categorias", "clientes", "produtos", "pedidos", "itens_pedido", "devolucoes"]

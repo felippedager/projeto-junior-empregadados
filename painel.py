@@ -153,14 +153,14 @@ def _barras(
 ) -> go.Figure:
     """Gráfico de barras de uma série. Textos e dicas já vêm formatados pelo chamador."""
     rotulos, valores = list(rotulos), list(valores)
-    barra = dict(
-        marker=dict(color=cores or AZUL, cornerradius=4),
-        text=list(textos),
-        textposition="outside",
-        cliponaxis=False,
-        customdata=list(dicas),
-        textfont=dict(size=13),
-    )
+    barra = {
+        "marker": {"color": cores or AZUL, "cornerradius": 4},
+        "text": list(textos),
+        "textposition": "outside",
+        "cliponaxis": False,
+        "customdata": list(dicas),
+        "textfont": {"size": 13},
+    }
     if horizontal:
         fig = go.Figure(go.Bar(
             x=valores, y=rotulos, orientation="h",
@@ -183,21 +183,21 @@ def _barras(
     folga = 1 + 0.03 * maior_texto if horizontal else 1.18
     # Com o valor escrito na barra, a grade só atrapalha (cortava os números): fica desligada
     # e só o gráfico de estados, que mostra eixo, liga a grade.
-    num = dict(
-        range=[0, maior * folga if maior else 1],
-        showgrid=False, zeroline=False, showticklabels=False, title=rotulo_valor,
-    )
+    num = {
+        "range": [0, maior * folga if maior else 1],
+        "showgrid": False, "zeroline": False, "showticklabels": False, "title": rotulo_valor,
+    }
     num.update(eixo_valor or {})
     fig.update_layout(**{eixo_num: num})
-    fig.update_layout(**{eixo_rotulo: dict(showgrid=False, linecolor=LINHA, title="")})
+    fig.update_layout(**{eixo_rotulo: {"showgrid": False, "linecolor": LINHA, "title": ""}})
     fig.update_layout(
         template="plotly_white",
-        title=dict(text=titulo, x=0, font=dict(size=16)),
+        title={"text": titulo, "x": 0, "font": {"size": 16}},
         separators=",.",
         bargap=0.45,
         showlegend=False,
         height=altura,
-        margin=dict(l=10, r=10, t=50, b=30),
+        margin={"l": 10, "r": 10, "t": 50, "b": 30},
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
     )
@@ -307,10 +307,10 @@ def grafico_estado(df: pd.DataFrame) -> go.Figure:
     return _barras(
         df["estado"], df["receita_bruta"], textos, dicas,
         "Receita por estado", horizontal=True, altura=760,
-        eixo_valor=dict(
-            showticklabels=True, tickformat=",.0f", tickprefix="US$ ",
-            showgrid=True, gridcolor=LINHA,
-        ),
+        eixo_valor={
+            "showticklabels": True, "tickformat": ",.0f", "tickprefix": "US$ ",
+            "showgrid": True, "gridcolor": LINHA,
+        },
     )
 
 

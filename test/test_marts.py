@@ -18,11 +18,10 @@ Valores esperados: contas à mão em apoio.py (receita 120,00, devolvido 80,00, 
 from datetime import date
 from decimal import Decimal as D
 
+import apoio
 import pytest
 
-import apoio
 from pipeline import db, marts
-
 
 # --------------------------------------------------------------------- orquestrador
 
@@ -128,7 +127,7 @@ def test_mart_vazio_para_e_mantem_os_marts_antigos(monkeypatch, tmp_path, capsys
 
 
 def test_falha_na_construcao_desfaz_a_transacao_mesmo_com_a_conexao_aberta(monkeypatch, tmp_path, capsys):
-    ambiente, pasta = preparar_orquestrador(monkeypatch, tmp_path, {"01_alfa.sql": "SELECT 1 AS x"})
+    _ambiente, pasta = preparar_orquestrador(monkeypatch, tmp_path, {"01_alfa.sql": "SELECT 1 AS x"})
     marts.main()
     capsys.readouterr()
     (pasta / "02_ruim.sql").write_text("SELEC 1", encoding="utf-8")  # erro de sintaxe no segundo arquivo

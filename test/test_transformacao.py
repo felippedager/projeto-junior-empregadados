@@ -14,10 +14,10 @@ Spec (specs/06_testes.md, seção 3, transformacao), com o motivo de cada regra 
 import re
 from decimal import Decimal
 
+import apoio
 import duckdb
 import pytest
 
-import apoio
 from pipeline import transformacao
 
 TABELAS = ["categorias", "clientes", "produtos", "pedidos", "itens_pedido", "devolucoes"]

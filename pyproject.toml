@@ -15,6 +15,10 @@ dev = [
     "ruff>=0.17.3",
 ]
 
+[tool.ruff]
+# dataset/ guarda o script do dado original, que não é nosso: não se reformata.
+extend-exclude = ["dataset"]
+
 [tool.pytest.ini_options]
 testpaths = ["test"]
 pythonpath = ["."]
@@ -23,7 +27,7 @@ pythonpath = ["."]
 # source = ["."] faz arquivo que nenhum teste importa contar como 0%.
 source = ["."]
 # dataset/ guarda o gerador do dado (Data_Extraction.py), que não é parte do pipeline.
-omit = ["test/*", "app.py", "ui.py", ".venv/*", "dataset/*"]
+omit = ["test/*", ".venv/*", "dataset/*"]
 
 [tool.coverage.report]
 fail_under = 90

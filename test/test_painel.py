@@ -9,15 +9,14 @@ Spec (specs/06_testes.md, seção 3, painel), com o motivo de cada regra provada
 Valores esperados: contas à mão em apoio.py (receita 120,00, devolvido 80,00, líquida 40,00, ...).
 """
 
+import apoio
 import duckdb
 import pandas as pd
 import plotly.graph_objects as go
 import pytest
 
-import apoio
 import painel
 from pipeline import db
-
 
 # ------------------------------------------------------------------------ formatos
 

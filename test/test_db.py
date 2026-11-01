@@ -8,11 +8,11 @@ Spec (specs/06_testes.md, seção 3, db), com o motivo de cada regra provada:
 - gravar substitui a tabela (nunca acrescenta) e devolve a contagem lida da tabela gravada.
 """
 
+import apoio
 import duckdb
 import pandas as pd
 import pytest
 
-import apoio
 from pipeline import db
 
 

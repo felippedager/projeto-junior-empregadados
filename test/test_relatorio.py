@@ -15,9 +15,9 @@ import difflib
 import re
 from datetime import datetime as DateTime
 
+import apoio
 import pytest
 
-import apoio
 import painel
 import relatorio
 

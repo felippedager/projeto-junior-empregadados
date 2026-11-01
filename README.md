@@ -172,3 +172,8 @@ Cada etapa segue o mesmo ciclo: escrever a spec (`specs/NN_nome.md`: regra + mot
 aceite verificáveis), aprovar, implementar com a spec como docstring no topo do arquivo, verificar
 cada critério contra o dado e listar o que foi assumido e não estava na spec. As regras do método e
 as armadilhas conhecidas estão em `CLAUDE.md`; a ordem das etapas está em `specs/roteiro.md`.
+
+## Licença
+
+- **Código:** este projeto está licenciado sob os termos da licença [MIT](LICENSE). O código pode ser livremente reutilizado, alterado e distribuído.
+- **Dados:** os dados em `raw/` e seus derivados estão sob a [Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/), conforme detalhado na seção [Os dados](#os-dados) e em `raw/README.md`.

@@ -1,4 +1,4 @@
-"""Testes de painel.py (leitura, formatos, cartões, filtro, gráficos). O app.py não é testado aqui.
+"""Testes de painel.py (leitura, formatos, cartões, filtro, gráficos).
 
 Spec (specs/06_testes.md, seção 3, painel), com o motivo de cada regra provada:
 - Formatos sem locale: ponto de milhar, vírgula decimal, "US$" no dinheiro; nulo vira "—" (não 0).

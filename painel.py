@@ -1,6 +1,7 @@
-"""Etapa 4: painel. Leitura dos marts, formatação e gráficos. Não importa streamlit.
+"""Etapa 4: painel. Leitura dos marts, formatação e gráficos.
 
-Uso: o app.py (uv run streamlit run app.py) monta a página com estas funções.
+Uso: o relatorio.py reaproveita estas funções (leitura, formatos, cartões e gráficos). A página
+interativa (app.py) foi descartada, então nenhum código aqui depende de uma interface.
 
 Spec (specs/04_painel.md), com o motivo de cada regra:
 
@@ -138,8 +139,8 @@ def filtrar_categorias(df: pd.DataFrame, categorias) -> pd.DataFrame:
 # ------------------------------------------------------------------- gráficos
 
 # Paleta única: um azul (série 1 da paleta de referência) e um cinza que serve nos dois temas.
-# Texto, título e fundo NÃO têm cor fixa: herdam do tema (o Streamlit aplica o dele; no
-# relatório HTML vale o template claro). Cor fixa de texto sumia no tema escuro.
+# Texto, título e fundo NÃO têm cor fixa: herdam do template (no relatório HTML, o plotly_white).
+# Cor fixa de texto sumiria se a figura fosse mostrada sobre fundo escuro.
 AZUL = "#2a78d6"
 CINZA_BARRA = "#9b9a93"
 LINHA = "rgba(128,128,128,0.35)"  # cinza translúcido: discreto no tema claro e no escuro

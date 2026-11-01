@@ -1,3 +1,10 @@
+STATUS (atualizado depois da entrega)
+Só a parte de funções desta spec foi mantida: o painel.py (leitura, formatos, cartões, filtro de
+linhas e as dez funções de gráfico), que o relatório da etapa 5 reaproveita. A página app.py
+(item 7), o comando `streamlit run` e o uso do Streamlit foram descartados, e o app.py e a
+dependência foram removidos do projeto. O restante do texto abaixo é o da spec original, mantido
+como histórico; os itens 1 a 6 continuam valendo para o painel.py.
+
 CONTEXTO
 Pipeline de dados em Python sobre um dataset sintético de e-commerce (Faker `en_IN`, 6 CSVs).
 Trabalho com spec-driven development: a spec abaixo é a fonte da verdade e o código é

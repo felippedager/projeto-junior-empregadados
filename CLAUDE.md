@@ -12,7 +12,8 @@ Trabalho em *spec-driven development*.
 - Ao entregar: (1) a spec como docstring no topo do arquivo, com o **motivo** de cada regra;
   (2) o código, comentado só onde a decisão não é óbvia; (3) lista do que você assumiu
   e que não estava na spec.
-- Antes de escrever uma spec nova, leia `specs/modelo_etapa.md` e um exemplo em `specs/exemplos/`.
+- Antes de escrever uma spec nova, leia `specs/modelo_etapa.md` e uma spec já aprovada, por
+  exemplo `specs/02_transformacao.md`.
 
 ## Stack
 Python 3.13, `uv`, DuckDB (`ecommerce.duckdb` na raiz). Sem orquestrador: cada etapa é um
@@ -21,7 +22,7 @@ script de linha de comando.
 ## Etapas, em ordem (ver `specs/roteiro.md`)
 ```
 raw/*.csv -> [1 ingestão] -> schema raw -> [2 transformação] -> schema refined
- -> [3 marts] -> schema marts -> [4 painel/app] e [5 relatório HTML]      [6 testes cobrem tudo]
+ -> [3 marts] -> schema marts -> [4 painel: funções] e [5 relatório HTML]      [6 testes cobrem tudo]
 ```
 | # | Arquivo | Comando |
 |---|---|---|
@@ -29,7 +30,7 @@ raw/*.csv -> [1 ingestão] -> schema raw -> [2 transformação] -> schema refine
 | 1 | `pipeline/ingestao.py` | `uv run python -m pipeline.ingestao` |
 | 2 | `pipeline/transformacao.py` | `uv run python -m pipeline.transformacao` |
 | 3 | `pipeline/marts.py` + `sql/marts/NN_nome.sql` | `uv run python -m pipeline.marts` |
-| 4 | `painel.py` + `app.py` | `uv run streamlit run app.py` |
+| 4 | `painel.py` (leitura, formatos e gráficos; a página `app.py` ficou de fora) | (sem comando: o relatório usa as funções) |
 | 5 | `relatorio.py` | `uv run python relatorio.py` |
 | 6 | `test/test_<modulo>.py` | `uv run pytest --cov` |
 

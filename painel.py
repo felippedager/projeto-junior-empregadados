@@ -8,7 +8,7 @@ Spec (specs/04_painel.md), com o motivo de cada regra:
 1. ESCOPO. Só lê de marts e só mostra; nunca escreve no banco. Nada de agrupar, somar, tirar
    média, juntar ou transpor tabelas, nem dividir valores de dois marts: número novo = mart novo.
    Motivo: regra de negócio mora no SQL; dois lugares com a conta é onde os números divergem.
-   Escolher linhas (filtro) e ordenar para exibir não são cálculo.
+   Ordenar para exibir não é cálculo.
 
 2. LEITURA. ler(nome) devolve SELECT * FROM marts.<nome>. Conexão somente leitura, aberta e
    fechada dentro da função (finally). Sem cache.
@@ -32,9 +32,6 @@ Spec (specs/04_painel.md), com o motivo de cada regra:
    "nome #id" (15 nomes para 300 produtos) e de cidade "cidade (estado)" (Udaipur existe em
    dois estados). Valor escrito na barra quando são poucas barras; no gráfico de 28 estados
    só nas cinco maiores, e a dica mostra todas (um número em toda barra vira ruído).
-
-6. FILTRO. filtrar_categorias(df, categorias) recorta linhas por categoria nos marts que têm
-   essa coluna. Motivo: um filtro que muda números sem mart por trás seria cálculo na tela.
 """
 
 import duckdb
@@ -130,10 +127,6 @@ def cartoes(df_kpis: pd.DataFrame) -> list[tuple[str, str, str]]:
             f"Inclui os sem item; com item: {com_item}",
         ),
     ]
-
-
-def filtrar_categorias(df: pd.DataFrame, categorias) -> pd.DataFrame:
-    return df[df["categoria"].isin(list(categorias))]
 
 
 # ------------------------------------------------------------------- gráficos

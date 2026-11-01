@@ -16,7 +16,7 @@ Módulos a testar, todos já entregues e aprovados:
   pipeline/transformacao.py  refined: tipos estritos, nomes, duplicata, atomicidade
   pipeline/marts.py          orquestrador de sql/marts/*.sql
   sql/marts/01..11_*.sql     os onze marts
-  painel.py                  leitura, formatos, cartões, filtro, 10 gráficos, tabela de qualidade
+  painel.py                  leitura, formatos, cartões, 10 gráficos, tabela de qualidade
   relatorio.py               relatorio.html
 Fora do escopo: app.py (só monta a página; já está no omit da cobertura) e o visual no
 navegador. Nada disso se testa aqui; a spec da etapa 5 já diz que o visual é verificação humana.
@@ -115,7 +115,7 @@ SPEC
    painel
      formatos_usam_ponto_de_milhar_e_virgula_decimal; formatos_devolvem_traco_para_nulo;
      ler_devolve_o_mart; ler_nome_desconhecido_e_erro_de_programacao; ler_sem_banco_diz_o_comando_e_nao_cria_o_banco;
-     ler_sem_mart_diz_o_comando; ler_fecha_a_conexao; cartoes_seguem_o_kpis; filtro_recorta_so_as_categorias_marcadas;
+     ler_sem_mart_diz_o_comando; ler_fecha_a_conexao; cartoes_seguem_o_kpis;
      cada_grafico_e_uma_figura_com_uma_serie_de_barras; rotulos_de_produto_e_cidade_trazem_identificador;
      grafico_de_estados_escreve_valor_so_nas_cinco_maiores; status_destaca_so_o_entregue; tabela_de_qualidade_vem_formatada
    relatorio

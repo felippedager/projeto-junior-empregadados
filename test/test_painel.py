@@ -1,10 +1,10 @@
-"""Testes de painel.py (leitura, formatos, cartões, filtro, gráficos).
+"""Testes de painel.py (leitura, formatos, cartões, gráficos).
 
 Spec (specs/06_testes.md, seção 3, painel), com o motivo de cada regra provada:
 - Formatos sem locale: ponto de milhar, vírgula decimal, "US$" no dinheiro; nulo vira "—" (não 0).
 - ler: nome fora da lista é erro de programação; sem banco ou sem mart vira PainelErro com o comando
   a rodar, e nunca cria banco; a conexão é fechada, para o pipeline poder gravar com o painel de pé.
-- cartões e filtro seguem os marts; cada gráfico é uma figura de barras de uma série, em formato
+- cartões seguem os marts; cada gráfico é uma figura de barras de uma série, em formato
   brasileiro; rótulos de produto e cidade trazem o identificador (nome e cidade não identificam).
 Valores esperados: contas à mão em apoio.py (receita 120,00, devolvido 80,00, líquida 40,00, ...).
 """
@@ -103,7 +103,7 @@ def test_ler_fecha_a_conexao(monkeypatch, tmp_path):
         abertas[0].execute("SELECT 1")  # conexão fechada não executa nada
 
 
-# ---------------------------------------------------------------- cartões e filtro
+# ----------------------------------------------------------------------- cartões
 
 
 def test_cartoes_seguem_o_kpis(monkeypatch, tmp_path):
@@ -123,19 +123,6 @@ def test_cartoes_seguem_o_kpis(monkeypatch, tmp_path):
     ajuda = {r: a for r, _, a in cartoes}
     assert "(3)" in ajuda["Ticket médio"]  # 3 pedidos entregues com item
     assert "com item: 3" in ajuda["Pedidos entregues"]
-
-
-def test_filtro_recorta_so_as_categorias_marcadas(monkeypatch, tmp_path):
-    apoio.montar_marts(monkeypatch, tmp_path)
-    df = painel.ler("receita_por_categoria")
-
-    so_a = painel.filtrar_categorias(df, ["Cat A"])
-    nenhuma = painel.filtrar_categorias(df, [])
-    todas = painel.filtrar_categorias(df, ["Cat A", "Cat B"])
-
-    assert so_a["categoria"].tolist() == ["Cat A"]
-    assert len(nenhuma) == 0
-    assert len(todas) == 2
 
 
 # ---------------------------------------------------------------------- gráficos

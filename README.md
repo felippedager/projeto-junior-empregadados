@@ -119,7 +119,6 @@ painel.py            leitura dos marts, formatos (US$, %, milhar) e uma função
 relatorio.py         gera relatorio.html (plotly por CDN, ids de gráfico fixos)
 test/                um arquivo por módulo, mais apoio.py com a entrada inventada
 specs/               uma spec por etapa (01 a 06), o roteiro e o modelo de spec
-design/              rascunho das faixas do relatório
 raw/                 os 6 CSVs
 dataset/             o gerador do dado (Data_Extraction.py)
 ```

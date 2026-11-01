@@ -23,7 +23,7 @@ sem importar streamlit:
     grafico_status, grafico_pagamento_receita, grafico_pagamento_cancelamento,
     grafico_categoria_receita, grafico_categoria_margem, grafico_categoria_devolucao,
     grafico_top_produtos, grafico_estado, grafico_cidade, grafico_tamanho_pedido
-O schema marts, da etapa 3, com onze tabelas. Rascunho das faixas: design/painel.md.
+O schema marts, da etapa 3, com onze tabelas.
 
 ARTEFATO A PRODUZIR
 relatorio.py, na raiz do projeto, executável com:

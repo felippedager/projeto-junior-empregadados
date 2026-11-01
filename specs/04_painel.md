@@ -1,9 +1,10 @@
 STATUS (atualizado depois da entrega)
-Só a parte de funções desta spec foi mantida: o painel.py (leitura, formatos, cartões, filtro de
-linhas e as dez funções de gráfico), que o relatório da etapa 5 reaproveita. A página app.py
-(item 7), o comando `streamlit run` e o uso do Streamlit foram descartados, e o app.py e a
-dependência foram removidos do projeto. O restante do texto abaixo é o da spec original, mantido
-como histórico; os itens 1 a 6 continuam valendo para o painel.py.
+Só a parte de funções desta spec foi mantida: o painel.py (leitura, formatos, cartões e as dez
+funções de gráfico), que o relatório da etapa 5 reaproveita. A página app.py (item 7), o filtro de
+categoria (item 6, a função filtrar_categorias e o teste dele), o comando `streamlit run` e o uso
+do Streamlit foram descartados, e o app.py, o rascunho da tela (design/painel.md) e a dependência
+foram removidos do projeto. O restante do texto abaixo é o da spec original, mantido como
+histórico; os itens 1 a 5 continuam valendo para o painel.py.
 
 CONTEXTO
 Pipeline de dados em Python sobre um dataset sintético de e-commerce (Faker `en_IN`, 6 CSVs).
@@ -25,7 +26,7 @@ O schema marts, criado pela etapa 3, com onze tabelas:
   pagamento_por_metodo (4), devolucao_por_categoria (6), tamanho_pedido (9),
   qualidade_dados (6).
 Colunas de cada uma: ver specs/03_marts.md, item 3. Dinheiro é DECIMAL(18,2); taxas e
-participações são fração de 0 a 1. Rascunho da tela: design/painel.md.
+participações são fração de 0 a 1.
 
 ARTEFATOS A PRODUZIR
 painel.py (leitura, formatação, gráficos; não importa streamlit) e app.py (só monta a página),

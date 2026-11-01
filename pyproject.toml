@@ -23,8 +23,9 @@ pythonpath = ["."]
 [tool.coverage.run]
 # source = ["."] faz arquivo que nenhum teste importa contar como 0%.
 source = ["."]
-omit = ["test/*", "app.py", "ui.py", ".venv/*"]
+# dataset/ guarda o gerador do dado (Data_Extraction.py), que não é parte do pipeline.
+omit = ["test/*", "app.py", "ui.py", ".venv/*", "dataset/*"]
 
 [tool.coverage.report]
-fail_under = 60
+fail_under = 90
 show_missing = true
